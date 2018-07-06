@@ -6,15 +6,35 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
+  "author": "Julian Beck",
   "license": "MIT",
+  "dependencies": {
+    "youtube-playlist": "^1.0.0",
+    "ytdl-core": "^0.20.4"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "rimraf": "^2.6.2"
   },
-  "dependencies": {
-    "youtube-playlist": "^1.0.0",
-    "ytdl-core": "^0.20.4"
-  }
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "youtube downloader",
+    "youtube playlist downloader",
+    "playlist downloader",
+    "playlist dl",
+    "ytpdl",
+    "youtube downloader",
+    "download",
+    "youtube",
+    "playlist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jufabeck2202/ytplaylist-dl"
+  },
+  "homepage": "https://github.com/jufabeck2202/ytplaylist-dl"
+
 }
