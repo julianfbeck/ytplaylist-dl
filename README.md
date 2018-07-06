@@ -15,10 +15,11 @@ $ npm install ytplaylist-dl
 const ytpdl = require('ytplaylist-dl');
 
 (async () => {
+    let videos = await ytpdl("YouTube url....", "Desktop", options);
+    //videos = [ "Desktop/Video1" , "Desktop/Video2", .....]
+
     await ytpdl("https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8", "Desktop",{format:"mp4"});
 
-    let videos = await ytpdl("YouTube url....", "Desktop");
-    //videos = [ "Desktop/Video1" , "Desktop/Video2", .....]
 })();
 ```
 
@@ -28,7 +29,7 @@ const ytpdl = require('ytplaylist-dl');
 ### ytpdl(url, output, [options])
 
 Downloads all videos from the playlist and saves them under the output Path.
-Returns a `Promise` with a path to all downloaded videos.
+Returns a `Promise` that holds an Array with all downloaded files.
 
 
 #### url
