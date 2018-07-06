@@ -9,18 +9,23 @@ module.exports = async (url, outputPath, options = {}) => {
     options = Object.assign({
         format: "mp4",
         quality: "highest"
-    }, options);        
+    }, options);
     return new Promise(async (resolve, reject) => {
-            
+
         try {
-
-            let parts = url.split("list=");
-            let id = parts[1].split("&");
-            url = "https://www.youtube.com/playlist?list="+id[0];
-            
-            let videos = await getPlaylist("https://www.youtube.com/playlist?list="+id[0]);
-
+            let videos = [];
             let files = []
+
+            //remove playlist id
+            let parts = url.split("list=");
+            if (parts.length == 1)
+                videos = [url];
+            else {
+                let id = parts[1].split("&");
+                let newUrl = "https://www.youtube.com/playlist?list=" + id[0];
+                videos = await getPlaylist(newUrl);
+            }
+
             for (let video of videos) {
                 let title = await getVideoTitle(video);
                 title = title.replace(/[/\\?%*:|"<>]/g, "-"); //make sure there are no illeagale characters
