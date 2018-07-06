@@ -4,12 +4,19 @@ const path = require("path");
 const fs = require("fs");
 
 
+/**
+ * 
+ * @param {String} url to playlist 
+ * @param {String} outputPath where to save the videos 
+ * @param {Object} options 
+ */
 module.exports = async (url, outputPath, options = {}) => {
 
     options = Object.assign({
         format: "mp4",
         quality: "highest"
     }, options);
+
     return new Promise(async (resolve, reject) => {
 
         try {
@@ -42,7 +49,7 @@ module.exports = async (url, outputPath, options = {}) => {
 }
 
 /**
- * Downloads youtube video and saves it as mp4
+ * Downloads youtube video and saves them
  * @param {String} url of the youtube video
  * @param {String} dir where the video should be placed
  */
