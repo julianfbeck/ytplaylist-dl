@@ -35,7 +35,11 @@ Returns a `Promise` with a path to all downloaded videos.
 
 Type: `string`
 
-Url to the YouTube Playlist. If the provided video is a normal YouTube video, the single video will be downloaded. PlayList url can be in the Format *https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8* or *https://www.youtube.com/watch?v=pRk9K1eB-JQ&list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8&index=1* if you already selected a video. 
+Url to the YouTube Playlist. If the provided video is a normal YouTube video, the single video will be downloaded. Plalist urls can be
+- https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8
+- https://www.youtube.com/watch?v=pRk9K1eB-JQ&list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8&
+- https://www.youtube.com/watch?v=pRk9K1eB-JQ&list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8&index=1
+- single videos can also be downloaded: https://www.youtube.com/watch?v=pRk9K1eB-JQ& 
 
 #### output
 
