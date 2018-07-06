@@ -21,7 +21,7 @@ module.exports = async (url, outputPath, options = {}) => {
                 title = title.replace(/[/\\?%*:|"<>]/g, "-"); //make sure there are no illeagale characters
                 let file = path.join(outputPath, title + "." + options.format);
                 await downloadVideo(video, file, options.quality);
-                files.push(file)
+                files.push(path.normalize(file));
             };
             resolve(files);
         } catch (error) {
