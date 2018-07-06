@@ -8,10 +8,10 @@ const fs = require("fs");
 
 
 describe("ytplaylist-dl", async function () {
-    this.timeout(100000);
+    this.timeout(1000000);
     rimraf.sync("testfolder");
     fs.mkdirSync("testfolder");
-    
+
     it("Downloading single file", async function () {
         await m("https://www.youtube.com/playlist?list=PLWKjhJtqVAbnZtkAI3BqcYxKnfWn_C704", "testfolder");
     });
