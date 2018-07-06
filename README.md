@@ -1,4 +1,4 @@
-# ytplaylist-dl 
+# ytplaylist-dl [![Build Status](https://travis-ci.org/jufabeck2202/ytplaylist-dl.svg?branch=master)](https://travis-ci.org/jufabeck2202/ytplaylist-dl)
 
 > download entire YouTube playlists at once
 
