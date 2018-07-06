@@ -35,7 +35,7 @@ Returns a `Promise` with a path to all downloaded videos.
 
 Type: `string`
 
-Url to the YouTube Playlist. If the provided video is a normal YouTube video, the single video will be downloaded
+Url to the YouTube Playlist. If the provided video is a normal YouTube video, the single video will be downloaded. PlayList url can be in the Format *https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8* or *https://www.youtube.com/watch?v=pRk9K1eB-JQ&list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8&index=1* if you already selected a video. 
 
 #### output
 
@@ -50,11 +50,11 @@ Type: `Object`
 ```
 {
     format:"mp4"
-    quality:
+    quality:"highest"
 }
 ```
 - **format** The video format of the downloaded Videos.
-- **format** The quality of the video see [ytdl-core quality](https://github.com/fent/node-ytdl-core#ytdlurl-options).
+- **quality** The quality of the video see [ytdl-core quality](https://github.com/fent/node-ytdl-core#ytdlurl-options).
 
 
 ## Related
