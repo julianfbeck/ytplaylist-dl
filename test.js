@@ -13,6 +13,7 @@ describe("ytplaylist-dl", async function () {
     fs.mkdirSync("testfolder");
 
     it("Downloading single file", async function () {
-        await m("https://www.youtube.com/playlist?list=PLWKjhJtqVAbnZtkAI3BqcYxKnfWn_C704", "testfolder");
+        let videos = await m("https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8", "testfolder");
+        console.log(videos);
     });
 });
