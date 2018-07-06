@@ -9,12 +9,17 @@ module.exports = async (url, outputPath, options = {}) => {
     options = Object.assign({
         format: "mp4",
         quality: "highest"
-    }, options);
-
+    }, options);        
     return new Promise(async (resolve, reject) => {
-
+            
         try {
-            let videos = await getPlaylist(url);
+
+            let parts = url.split("list=");
+            let id = parts[1].split("&");
+            url = "https://www.youtube.com/playlist?list="+id[0];
+            
+            let videos = await getPlaylist("https://www.youtube.com/playlist?list="+id[0]);
+
             let files = []
             for (let video of videos) {
                 let title = await getVideoTitle(video);
