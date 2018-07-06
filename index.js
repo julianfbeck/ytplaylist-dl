@@ -11,14 +11,19 @@ module.exports = async (url, outputPath, options = {}) => {
     }, options);
 
     return new Promise(async (resolve, reject) => {
+        
+        try {
+            let videos = await getPlaylist(url);
 
-        let videos = await getPlaylist(url);
+            for (let video of videos) {
+                let title = await getVideoTitle(video);
+                title = title.replace(/[/\\?%*:|"<>]/g, "-"); //make sure there are no illeagale characters
+                await downloadVideo(video, path.join(outputPath, title + "." + options.format));
+            };
+        } catch (error) {
+            reject(error);
+        }
 
-        for (let video of videos) {
-            let title = await getVideoTitle(video);
-            title = title.replace(/[/\\?%*:|"<>]/g, "-"); //make sure there are no illeagale characters
-            await downloadVideo(video, path.join(outputPath, title + "." + options.format));
-        };
     });
 }
 
