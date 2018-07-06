@@ -14,6 +14,9 @@ describe("ytplaylist-dl", async function () {
 
     it("Downloading single file", async function () {
         let videos = await m("https://www.youtube.com/playlist?list=PLfpHPxe91z9NEwLMsxfmAehlZnoTzRFB8", "testfolder");
-        console.log(videos);
+        expect(videos).to.be.an("array");
+        let result = fs.readdirSync("testfolder");
+        expect(result[0]).to.be.equal("Feelin29 Feat.KOJOE - 5lack.mp4")
     });
+    rimraf.sync("testfolder");
 });
