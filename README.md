@@ -50,9 +50,11 @@ Type: `Object`
 ```
 {
     format:"mp4"
+    quality:
 }
 ```
-The video format of the downloaded Videos.
+- **format** The video format of the downloaded Videos.
+- **format** The quality of the video see [ytdl-core quality](https://github.com/fent/node-ytdl-core#ytdlurl-options).
 
 
 ## Related
