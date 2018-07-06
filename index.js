@@ -7,19 +7,23 @@ const fs = require("fs");
 module.exports = async (url, outputPath, options = {}) => {
 
     options = Object.assign({
-        format: "mp4"
+        format: "mp4",
+        quality: "highest"
     }, options);
 
     return new Promise(async (resolve, reject) => {
-        
+
         try {
             let videos = await getPlaylist(url);
-
+            let files = []
             for (let video of videos) {
                 let title = await getVideoTitle(video);
                 title = title.replace(/[/\\?%*:|"<>]/g, "-"); //make sure there are no illeagale characters
-                await downloadVideo(video, path.join(outputPath, title + "." + options.format));
+                let file = path.join(outputPath, title + "." + options.format);
+                await downloadVideo(video, file, options.quality);
+                files.push(file)
             };
+            resolve(files);
         } catch (error) {
             reject(error);
         }
@@ -32,9 +36,11 @@ module.exports = async (url, outputPath, options = {}) => {
  * @param {String} url of the youtube video
  * @param {String} dir where the video should be placed
  */
-async function downloadVideo(url, dir) {
+async function downloadVideo(url, dir, quality) {
     return new Promise((resolve, reject) => {
-        ytdl(url)
+        ytdl(url, {
+                quality: quality
+            })
             .pipe(fs.createWriteStream(dir)).on("finish", () => {
                 resolve(dir);
             });
